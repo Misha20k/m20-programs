@@ -328,5 +328,19 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Обработчик события касания экрана (для мобильных устройств)
+document.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // Предотвращаем нежелательное поведение браузера
+    if (!gameActive) {
+        // Если игра неактивна, перезапускаем
+        gameOverElement.style.display = 'none';
+        resetGame();
+    } else {
+        // Если игра активна, прыгаем
+        jump();
+    }
+});
+
+
 // Запуск игры
 startGame();
